@@ -1,6 +1,11 @@
-.single-call{
-    padding: 20px;
-}   
-.calls{
-    padding: 20px;
+.single-call {
+  padding: 30px;
+  transition: 1s;
+}
+.calls {
+  padding: 20px;
+}
+.time,
+.from-to {
+  padding: 5px;
 }
