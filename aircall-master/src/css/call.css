@@ -1,11 +1,66 @@
 .single-call {
-  padding: 30px;
+    display: flex;
+  margin: 15px;
+  padding: 15px;
+
   transition: 1s;
+  justify-content: space-between;
+  border: .5px solid #DFDFDF;
+  border-radius: 25px;
+    overflow: hidden;
+
 }
+
 .calls {
   padding: 20px;
 }
 .time,
 .from-to {
   padding: 5px;
+  margin: auto 0;
+
+}
+.from-to{
+    min-height: 50px;
+
+}
+.from{
+    
+    font-size: 1em;
+    font-weight: bold;
+}
+.to{
+    font-size: 1em;
+    font-weight: lighter;
+}
+.time{
+    display: inline-block;
+    font-size: .8em;
+}
+.from,.to{
+    padding-top: 10px;
+}
+.icon{
+    margin: auto 0;
+    padding: 5px;
+    font-size: 1.3em;
+}
+.delete{
+    cursor: pointer;
+    border: 0;
+
+}
+.phone{
+    border-radius: 100%;
+}
+.label{
+    font-size: .6em;
+    font-weight: lighter;
+    padding: 5px;
+}
+.reset{
+    cursor: pointer;
+    margin: 15px;
+    padding: 5px 15px;
+    /* border-radius: 25px; */
 }

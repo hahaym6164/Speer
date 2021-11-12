@@ -8,9 +8,9 @@ const App = () => {
     <div className="container">
       <Header />
       <Calls data={calls} />
-      {calls | JSON} {"calls"}
-      <div className="container-view">Some activities should be here</div>
+      <div className="container-view">Tah-da!</div>
     </div>
+    
   );
 };
 

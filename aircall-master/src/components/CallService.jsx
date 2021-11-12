@@ -47,7 +47,6 @@ export default class CallService extends Component {
     time = `${time.getHours()}:${time.getMinutes()} ${
       parseInt(time.getHours()) < 11 ? "am" : "pm"
     }`;
-    console.log(time);
     return time;
   }
 
@@ -56,13 +55,10 @@ export default class CallService extends Component {
     axios
       .get(url)
       .then((res) => {
-        console.log(res);
         res.data.map((i) => {
-          // Formated the time
           i.created_at = this.correctTime(i.created_at);
         });
         this.setState({ getList: res.data });
-        // console.log(get.data);
       })
       .catch((err) => {
         console.log(err);
@@ -72,9 +68,6 @@ export default class CallService extends Component {
     axios
       .get(resetUrl)
       .then((res) => {
-        console.log(res, "reset");
-        // this.setState({ getList: res.data });
-
         this.componentDidMount();
       })
       .catch((err) => console.log(err));
@@ -83,30 +76,37 @@ export default class CallService extends Component {
     let { getList } = this.state;
     return (
       <div className="calls">
-        <button onClick={this.reset.bind(this)}>Reset</button>
+        <button className="reset" onClick={this.reset.bind(this)}> Unarchive all <i className="icon fas fa-trash-restore-alt"></i>
+
+</button>
+        
+        {/* Call List rendering */}
         {getList.map((i, index) => (
           <div
             key={i.id}
             className="single-call"
             style={
               i.is_archived
-                ? { visibility: "hidden", opacity: 0, height: 0 }
-                : { display: "block" }
+                ? { visibility: "hidden", opacity: 0, maxHeight: 0, padding:'0 15px',   margin: '0 15px'}
+                : {visibility: "visible", opacity: 1, maxHeight: '500px', padding:'15px',margin: '15px'  }
             }
           >
-            <div className="time">{i.created_at}</div>
-            <div className="from-to">
-              id: {i.id}
-              Caller : {i.from}
-              <br />
-              To : {i.to}
+            <div className="time"><span>{i.created_at}</span></div>
+            <div className="icon phone"><i className="fas fa-phone-volume"></i></div>
+
+            <div className="from-to"> 
+             <div className="from"><span className="label">From:</span>{i.from}</div> 
+               
+              <div className="to"><span className="label">To:</span>{i.to}</div>
             </div>
-            {console.log(i)}
-            <button onClick={this.deleteCall.bind(this, i.id, i, index)}>
-              delete
+            <button className="icon delete"  onClick={this.deleteCall.bind(this, i.id, i, index)}>
+            <i className="fas fa-trash"></i>
+
+
             </button>
           </div>
         ))}
+
       </div>
     );
   }
