@@ -80,17 +80,16 @@ export default class CallService extends Component {
             style={
               // show the call list when isTrashCan = false else show archived list
               (this.state.trashCan ?  !i.is_archived:i.is_archived) 
-            ? { visibility: "hidden", opacity: 0, maxHeight: 0, padding:'0 15px',   margin: '0 15px'}
-                : {visibility: "visible", opacity: 1, maxHeight: '500px', padding:'15px',margin: '15px'  }
-            }
+            ? { visibility: "hidden", opacity: 0, maxHeight: 0, padding:'0 15px',   margin: '0'}
+                : {visibility: "visible", opacity: 1, maxHeight: '500px', padding:'15px',margin: '15px 0'  }            }
           >
             <div className="time"><span>{i.created_at}</span></div>
             <div className="icon phone"><i className="fas fa-phone-volume"></i></div>
 
             <div className="from-to"> 
-             <div className="from"><span className="label">From:</span>{i.from}</div> 
+           <div className="from"> <span className="label">From:</span><span>{i.from}</span></div> 
                
-              <div className="to"><span className="label">To:</span>{i.to}</div>
+              <div className="to"><span className="label">To:</span> <span>{i.to}</span></div>
             </div>
             <button className="icon delete"  onClick={this.removeFromList.bind(this, i.id, i, index)}>
               {/* Icon change by the current tab */}

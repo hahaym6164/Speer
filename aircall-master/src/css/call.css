@@ -1,7 +1,7 @@
 .single-call {
     display: flex;
-  margin: 15px;
-  padding: 15px;
+    margin: 15px 0;
+      padding: 15px;
 
   transition: 1s;
   justify-content: space-between;
@@ -22,20 +22,24 @@
 }
 .from-to{
     min-height: 50px;
-
+    width: 50%;
 }
 .from{
     
     font-size: 1em;
     font-weight: bold;
+    display: flex;
 }
 .to{
+  display: flex;
+
     font-size: 1em;
     font-weight: lighter;
 }
 .time{
     display: inline-block;
     font-size: .8em;
+    width: 15%;
 }
 .from,.to{
     padding-top: 10px;
@@ -48,10 +52,13 @@
 .delete{
     cursor: pointer;
     border: 0;
+    width: 15%;
+
 
 }
 .phone{
     border-radius: 100%;
+    width: 5%;
 }
 .label{
     font-size: .6em;
