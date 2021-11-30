@@ -118,7 +118,7 @@ export default class students extends Component {
                     <p><span className="title">Company: </span>{i.company}</p>
                     <p><span className="title">Email: </span>{i.email}</p>
                     <p><span className="title">Skill:</span> {i.skill}</p>
-                    <p><span className="title">Average:</span> {(i.grades.reduce((a, b) => parseInt(a) + parseInt(b))}</p>
+                    <p><span className="title">Average:</span> {Math.round((i.grades.reduce((a, b) => parseInt(a) + parseInt(b))) / i.grades.length)}</p>
                   </div>
                   <div className={(i.showGrades ? " " : "hidden") + " grades"}>
                     {i.grades.map((grade, index) => (
